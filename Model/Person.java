@@ -1,7 +1,5 @@
 package Model;
 
-import javax.naming.Name;
-
 public class Person {
     private String firstName;
     private String lastName;
