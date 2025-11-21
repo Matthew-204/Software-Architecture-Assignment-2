@@ -1,7 +1,7 @@
 package Model;
 
-public class Staff extends Person{
-    private String staff_ID;
+public class Staff extends Person {
+
     private String job_Role;
     private String department_Name;
     private String facility_ID;
@@ -14,13 +14,12 @@ public class Staff extends Person{
         super();
     }
 
-    public Staff (String firstName, String lastName, String emailAddress, String phoneNumber,
-                  String staff_ID, String job_Role, String department_Name, String facility_ID,
-                  String employment_Status, String start_Date, String line_Manager, String access_Level)
-    {
-        super(firstName, lastName, emailAddress, phoneNumber);
+    public Staff(String ID, String firstName, String lastName, String emailAddress, int phoneNumber,
+                 String job_Role, String department_Name, String facility_ID,
+                 String employment_Status, String start_Date, String line_Manager, String access_Level) {
+        super(ID, firstName, lastName, emailAddress, phoneNumber);
 
-        this.staff_ID = staff_ID;
+
         this.job_Role = job_Role;
         this.department_Name = department_Name;
         this.facility_ID = facility_ID;
@@ -31,13 +30,6 @@ public class Staff extends Person{
 
     }
 
-    public String getStaff_ID() {
-        return staff_ID;
-    }
-
-    public void setStaff_ID(String staff_ID) {
-        this.staff_ID = staff_ID;
-    }
 
     public String getJob_Role() {
         return job_Role;

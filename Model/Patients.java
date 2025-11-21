@@ -1,15 +1,14 @@
 package Model;
 
 public class Patients extends Person {
-        private String patient_ID;
-        private String gender;
+        private char gender;
         private String date_of_Birth;
         private String home_Address;
-        private String nhs_Number;
+        private int nhs_Number;
         private String postcode;
         private String emergency_contact_Name;
-        private String emergency_contact_phone_Number;
-        private String registration_Date;
+        private int emergency_contact_phone_Number;
+        private int registration_Date;
         private String gp_surgery_ID;
 
 
@@ -17,14 +16,14 @@ public class Patients extends Person {
         super();
     }
 
-    public Patients(String firstName, String lastName, String emailAddress, String phoneNumber,
-                    String patient_ID, String gender,String date_of_Birth, String home_Address,
-                    String nhs_Number,  String postcode, String emergency_contact_Name,
-                    String emergency_contact_phone_Number, String registration_Date, String gp_surgery_ID)
+    public Patients(String ID, String firstName, String lastName, String emailAddress, int phoneNumber,
+                    String patient_ID, char gender,String date_of_Birth, String home_Address,
+                    int nhs_Number, String postcode, String emergency_contact_Name,
+                    int emergency_contact_phone_Number, int registration_Date, String gp_surgery_ID)
     {
-        super(firstName, lastName, emailAddress, phoneNumber);
+        super( ID, firstName, lastName, emailAddress, phoneNumber);
 
-        this.patient_ID = patient_ID;
+
         this.gender = gender;
         this.date_of_Birth = date_of_Birth;
         this.home_Address = home_Address;
@@ -36,19 +35,12 @@ public class Patients extends Person {
         this.gp_surgery_ID = gp_surgery_ID;
     }
 
-    public String getPatient_ID() {
-        return patient_ID;
-    }
 
-    public void setPatient_ID(String patient_ID) {
-        this.patient_ID = patient_ID;
-    }
-
-    public String getGender() {
+    public char getGender() {
         return gender;
     }
 
-    public void setGender(String gender) {
+    public void setGender(char gender) {
         this.gender = gender;
     }
 
@@ -68,11 +60,11 @@ public class Patients extends Person {
         this.home_Address = home_Address;
     }
 
-    public String getNhs_Number() {
+    public int getNhs_Number() {
         return nhs_Number;
     }
 
-    public void setNhs_Number(String nhs_Number) {
+    public void setNhs_Number(int nhs_Number) {
         this.nhs_Number = nhs_Number;
     }
 
@@ -92,19 +84,19 @@ public class Patients extends Person {
         this.emergency_contact_Name = emergency_contact_Name;
     }
 
-    public String getEmergency_contact_phone_Number() {
+    public int getEmergency_contact_phone_Number() {
         return emergency_contact_phone_Number;
     }
 
-    public void setEmergency_contact_phone_Number(String emergency_contact_phone_Number) {
+    public void setEmergency_contact_phone_Number(int emergency_contact_phone_Number) {
         this.emergency_contact_phone_Number = emergency_contact_phone_Number;
     }
 
-    public String getRegistration_Date() {
+    public int getRegistration_Date() {
         return registration_Date;
     }
 
-    public void setRegistration_Date(String registration_Date) {
+    public void setRegistration_Date(int registration_Date) {
         this.registration_Date = registration_Date;
     }
 

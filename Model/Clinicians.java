@@ -1,7 +1,7 @@
 package Model;
 
 public class Clinicians extends Person {
-    private String clinician_ID;
+
     private String title;
     private String speciality;
     private String gmc_Number;
@@ -14,14 +14,14 @@ public class Clinicians extends Person {
         super();
     }
 
-    public Clinicians(String firstName, String lastName, String emailAddress, String phoneNumber,
-                      String clinician_ID, String title, String speciality, String gmc_Number, String work_place_ID,
+    public Clinicians( String ID, String firstName, String lastName, String emailAddress, int phoneNumber,
+                      String title, String speciality, String gmc_Number, String work_place_ID,
                       String work_place_Type, String employment_Status, String start_Date)
     {
 
-        super(firstName, lastName, emailAddress, phoneNumber);
+        super(ID, firstName, lastName, emailAddress, phoneNumber);
 
-        this.clinician_ID = clinician_ID;
+
         this.title = title;
         this.speciality = speciality;
         this.gmc_Number = gmc_Number;
@@ -32,13 +32,6 @@ public class Clinicians extends Person {
 
     }
 
-    public String getClinician_ID() {
-        return clinician_ID;
-    }
-
-    public void setClinician_ID(String clinician_ID) {
-        this.clinician_ID = clinician_ID;
-    }
 
     public String getTitle() {
         return title;

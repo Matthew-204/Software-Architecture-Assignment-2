@@ -1,15 +1,17 @@
 package Model;
 
-public class Person {
-    private String firstName;
-    private String lastName;
-    private String emailAddress;
-    private String phoneNumber;
+public abstract class Person {
+    public String ID;
+    public String firstName;
+    public String lastName;
+    public String emailAddress;
+    public int phoneNumber;
 
     public Person() {};
 
-    public Person(String firstName, String lastName, String emailAddress, String phoneNumber )
+    public Person( String ID, String firstName, String lastName, String emailAddress, int phoneNumber )
     {
+        this.ID = ID;
         this.firstName = firstName;
         this.lastName = lastName;
         this.emailAddress = emailAddress;
@@ -40,11 +42,19 @@ public class Person {
         this.emailAddress = emailAddress;
     }
 
-    public String getPhoneNumber() {
+    public int getPhoneNumber() {
         return phoneNumber;
     }
 
-    public void setPhoneNumber(String phoneNumber) {
+    public void setPhoneNumber(int phoneNumber) {
         this.phoneNumber = phoneNumber;
+    }
+
+    public String getID() {
+        return ID;
+    }
+
+    public void setID(String ID) {
+        this.ID = ID;
     }
 }
