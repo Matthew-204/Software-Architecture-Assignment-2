@@ -5,11 +5,11 @@ public abstract class Person {
     public String firstName;
     public String lastName;
     public String emailAddress;
-    public int phoneNumber;
+    public long phoneNumber;
 
     public Person() {};
 
-    public Person( String ID, String firstName, String lastName, String emailAddress, int phoneNumber )
+    public Person( String ID, String firstName, String lastName, String emailAddress, long phoneNumber )
     {
         this.ID = ID;
         this.firstName = firstName;
@@ -42,7 +42,7 @@ public abstract class Person {
         this.emailAddress = emailAddress;
     }
 
-    public int getPhoneNumber() {
+    public long getPhoneNumber() {
         return phoneNumber;
     }
 

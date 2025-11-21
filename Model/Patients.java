@@ -4,22 +4,22 @@ public class Patients extends Person {
         private char gender;
         private String date_of_Birth;
         private String home_Address;
-        private int nhs_Number;
+        private long nhs_Number;
         private String postcode;
         private String emergency_contact_Name;
-        private int emergency_contact_phone_Number;
-        private int registration_Date;
+        private long emergency_contact_phone_Number;
+        private String registration_Date;
         private String gp_surgery_ID;
 
 
-    public Patients() {
-        super();
-    }
+//    public Patients() {
+//        super();
+//    }
 
-    public Patients(String ID, String firstName, String lastName, String emailAddress, int phoneNumber,
+    public Patients(String ID, String firstName, String lastName, String emailAddress, long phoneNumber,
                     String patient_ID, char gender,String date_of_Birth, String home_Address,
-                    int nhs_Number, String postcode, String emergency_contact_Name,
-                    int emergency_contact_phone_Number, int registration_Date, String gp_surgery_ID)
+                    long nhs_Number, String postcode, String emergency_contact_Name,
+                    long emergency_contact_phone_Number, String registration_Date, String gp_surgery_ID)
     {
         super( ID, firstName, lastName, emailAddress, phoneNumber);
 
@@ -60,7 +60,7 @@ public class Patients extends Person {
         this.home_Address = home_Address;
     }
 
-    public int getNhs_Number() {
+    public long getNhs_Number() {
         return nhs_Number;
     }
 
@@ -84,7 +84,7 @@ public class Patients extends Person {
         this.emergency_contact_Name = emergency_contact_Name;
     }
 
-    public int getEmergency_contact_phone_Number() {
+    public long getEmergency_contact_phone_Number() {
         return emergency_contact_phone_Number;
     }
 
@@ -92,11 +92,11 @@ public class Patients extends Person {
         this.emergency_contact_phone_Number = emergency_contact_phone_Number;
     }
 
-    public int getRegistration_Date() {
+    public String getRegistration_Date() {
         return registration_Date;
     }
 
-    public void setRegistration_Date(int registration_Date) {
+    public void setRegistration_Date(String registration_Date) {
         this.registration_Date = registration_Date;
     }
 

@@ -6,7 +6,7 @@ public class Facilities {
     private String facility_Type;
     private String Address;
     private String postCode;
-    private String phone_number;
+    private int phone_number;
     private String email_Address;
     private String opening_Hours;
     private String manager_Name;
@@ -14,7 +14,7 @@ public class Facilities {
     private String specialities_Offered;
 
     public Facilities(String facility_ID, String facility_Name, String facility_Type, String Address, String postCode,
-                      String phone_number, String email_Address, String opening_Hours, String manager_Name, int capacity,
+                      int phone_number, String email_Address, String opening_Hours, String manager_Name, int capacity,
                       String specialities_Offered){
 
 
@@ -71,11 +71,11 @@ public class Facilities {
         this.postCode = postCode;
     }
 
-    public String getPhone_number() {
+    public int getPhone_number() {
         return phone_number;
     }
 
-    public void setPhone_number(String phone_number) {
+    public void setPhone_number(int phone_number) {
         this.phone_number = phone_number;
     }
 
