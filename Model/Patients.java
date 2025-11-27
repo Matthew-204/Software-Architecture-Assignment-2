@@ -4,10 +4,10 @@ public class Patients extends Person {
         private char gender;
         private String date_of_Birth;
         private String home_Address;
-        private long nhs_Number;
+        private String nhs_Number;
         private String postcode;
         private String emergency_contact_Name;
-        private long emergency_contact_phone_Number;
+        private String emergency_contact_phone_Number;
         private String registration_Date;
         private String gp_surgery_ID;
 
@@ -16,10 +16,10 @@ public class Patients extends Person {
 //        super();
 //    }
 
-    public Patients(String ID, String firstName, String lastName, String emailAddress, long phoneNumber,
+    public Patients(String ID, String firstName, String lastName, String emailAddress, String phoneNumber,
                     String patient_ID, char gender,String date_of_Birth, String home_Address,
-                    long nhs_Number, String postcode, String emergency_contact_Name,
-                    long emergency_contact_phone_Number, String registration_Date, String gp_surgery_ID)
+                    String nhs_Number, String postcode, String emergency_contact_Name,
+                    String emergency_contact_phone_Number, String registration_Date, String gp_surgery_ID)
     {
         super( ID, firstName, lastName, emailAddress, phoneNumber);
 
@@ -60,11 +60,11 @@ public class Patients extends Person {
         this.home_Address = home_Address;
     }
 
-    public long getNhs_Number() {
+    public String getNhs_Number() {
         return nhs_Number;
     }
 
-    public void setNhs_Number(int nhs_Number) {
+    public void setNhs_Number(String nhs_Number) {
         this.nhs_Number = nhs_Number;
     }
 
@@ -84,11 +84,11 @@ public class Patients extends Person {
         this.emergency_contact_Name = emergency_contact_Name;
     }
 
-    public long getEmergency_contact_phone_Number() {
+    public String getEmergency_contact_phone_Number() {
         return emergency_contact_phone_Number;
     }
 
-    public void setEmergency_contact_phone_Number(int emergency_contact_phone_Number) {
+    public void setEmergency_contact_phone_Number(String emergency_contact_phone_Number) {
         this.emergency_contact_phone_Number = emergency_contact_phone_Number;
     }
 

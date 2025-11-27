@@ -14,7 +14,7 @@ public class Staff extends Person {
         super();
     }
 
-    public Staff(String ID, String firstName, String lastName, String emailAddress, int phoneNumber,
+    public Staff(String ID, String firstName, String lastName, String emailAddress, String phoneNumber,
                  String job_Role, String department_Name, String facility_ID,
                  String employment_Status, String start_Date, String line_Manager, String access_Level) {
         super(ID, firstName, lastName, emailAddress, phoneNumber);

@@ -14,7 +14,7 @@ public class Clinicians extends Person {
         super();
     }
 
-    public Clinicians( String ID, String firstName, String lastName, String emailAddress, int phoneNumber,
+    public Clinicians( String ID, String firstName, String lastName, String emailAddress, String phoneNumber,
                       String title, String speciality, String gmc_Number, String work_place_ID,
                       String work_place_Type, String employment_Status, String start_Date)
     {
