@@ -1,17 +1,25 @@
 package Model;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import file_handler.File_Manager;
+
 public class Tester {
     static void main(String[] args) {
 
         Patients linda = new Patients("P006","Linda", "Miller", "Linda.miller@email.com",
-                7678901234L, "P006",  'F',
-                "27/04/1978", "987 Cedar Grove, Birmingham", 6789012345L,
-                "B4 6FF", "Mark Miller",7432109876L, "2020-12-01",
+                "079494351", "P006",  'F',
+                "27/04/1978", "987 Cedar Grove, Birmingham", "6789012345",
+                "B4 6FF", "Mark Miller","074959592", "2020-12-01",
         "S002");
 
+        System.out.println(linda.phoneNumber);
 
+        List<String[]> patientData = File_Manager.readFile("data/staff.csv");
 
+        for (String[] line : patientData) {
+            System.out.println("First Name: " + line[1] + "\nLast Name: " + line[2]);
+        }
     }
-
-
 }
