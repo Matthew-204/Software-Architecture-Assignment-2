@@ -79,7 +79,7 @@ public class HealthcareGUI extends JFrame {
     }
     private JPanel createReferralsPanel() {
         JPanel panel = new JPanel();
-        return panel
+        return panel;
     }
 
     public String getText() {
