@@ -21,7 +21,7 @@ public class HealthcareController {
     private class SetListener implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
-            System.out.println("Showing Text: " + View.getText() + "\n");
+            System.out.println("Showing Text: " + View.getText());
         }
     }
 }
