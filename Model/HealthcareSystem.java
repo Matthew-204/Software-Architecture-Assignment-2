@@ -35,7 +35,7 @@ public class HealthcareSystem {
     }
 
     /**
-     * loads the staff instance into new objects from file
+     * loads the staff instance into new objects from the file
      */
     public void loadStaff()
     {
