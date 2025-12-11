@@ -70,7 +70,7 @@ public class HealthcareGUI extends JFrame {
         JLabel titleLabel = new JLabel("Patients");
         titleLabel.setFont(new Font("Arial", Font.BOLD, 18));
         panel.add(titleLabel, BorderLayout.NORTH);
-        String[] columns ={"patient_id","first_name","last_name","date_of_birth","nhs_number","gender,phone_number",
+        String[] columns ={"patient_id","first_name","last_name","date_of_birth","nhs_number","gender","phone_number",
                 "email address","postcode","emergency_contact_name","emergency_contact_phone","registration_date"
                 ,"gp_surgery_id"};
         patientTableModel = new DefaultTableModel(columns, 0) {
