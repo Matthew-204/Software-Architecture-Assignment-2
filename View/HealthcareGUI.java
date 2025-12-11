@@ -10,7 +10,7 @@ import java.awt.event.*;
 public class HealthcareGUI extends JFrame {
     private JTabbedPane tabsPane;
     private final JTextField exampleField = new JTextField();
-    private final JButton exampleButton = new JButton("Submit");
+    private final JButton exampleButton = new JButton("Submit")
 
     private JTable patientTable;
     private DefaultTableModel patientTableModel;
