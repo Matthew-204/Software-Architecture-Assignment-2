@@ -19,7 +19,6 @@ public class Staff extends Person {
                  String employment_Status, String start_Date, String line_Manager, String access_Level) {
         super(ID, firstName, lastName, emailAddress, phoneNumber);
 
-
         this.job_Role = job_Role;
         this.department_Name = department_Name;
         this.facility_ID = facility_ID;
@@ -27,9 +26,7 @@ public class Staff extends Person {
         this.start_Date = start_Date;
         this.line_Manager = line_Manager;
         this.access_Level = access_Level;
-
     }
-
 
     public String getJob_Role() {
         return job_Role;
@@ -86,4 +83,29 @@ public class Staff extends Person {
     public void setAccess_Level(String access_Level) {
         this.access_Level = access_Level;
     }
+
+
+    /**
+     * create a new class based off information its given
+     * @param element the elements that need to be added to class
+     * @return return new instance of staff
+     */
+    public static Staff fromCVS(String[] element) {
+        return new Staff(element[0], element[1], element[2], element[3],
+                element[4], element[5], element[6], element[7], element[8],
+                element[9], element[10], element[11]);
+    };
+
+
+    /**
+     * gets all the elements from current class converts them to strings
+     * @return returns string of elements
+     */
+    public String toCSV() {
+        return ID + "," + firstName + "," + lastName + "," + emailAddress + "," + phoneNumber + "," +
+                job_Role + "," + department_Name + "," + facility_ID + "," + employment_Status + "," +
+                start_Date + "," + line_Manager + "," + access_Level;
+    }
+
+
 }

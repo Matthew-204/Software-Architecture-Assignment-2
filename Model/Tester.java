@@ -17,8 +17,12 @@ public class Tester {
 
         List<String[]> patientData = File_Manager.readFile("data/staff.csv");
 
-        for (String[] line : patientData) {
-            System.out.println("First Name: " + line[1] + "\nLast Name: " + line[2]);
+        for (String[] line : patientData) { // get the line
+            for (String element : line) { // get the nested element
+                System.out.println("element line: " + element + "\n");
+            }
         }
+
+
     }
 }

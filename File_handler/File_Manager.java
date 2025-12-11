@@ -12,7 +12,6 @@ public final class File_Manager {
         List<String[]> data = new ArrayList<>();
         try {
             reader = new BufferedReader(new FileReader(filePath));
-
             String line;
             while ((line = reader.readLine()) != null) {
                 data.add(line.split(",")); //
@@ -29,7 +28,6 @@ public final class File_Manager {
                 e.printStackTrace();
             }
         }
-
         return data;
     }
 
@@ -54,7 +52,6 @@ public final class File_Manager {
                 e.printStackTrace();
             }
         }
-
         return false;
     }
 }
