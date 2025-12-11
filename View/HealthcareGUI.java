@@ -106,7 +106,7 @@ public class HealthcareGUI extends JFrame {
         JPanel panel = new JPanel(new BorderLayout(10, 10));
         panel.setBorder(BorderFactory.createEmptyBorder(10,10,10,10));
 
-        JLabel titleLabel = new JLabel("Appointment");
+        JLabel titleLabel = new JLabel("Appointments");
         titleLabel.setFont(new Font("Arial", Font.BOLD, 18));
         panel.add(titleLabel, BorderLayout.NORTH);
         String[] columns ={"appointment_id","patient_id","clinician_id","facility_id","appointment_date","appointment_time",
