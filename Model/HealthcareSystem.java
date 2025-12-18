@@ -11,17 +11,34 @@ import java.util.List;
 public class HealthcareSystem {
 
     private HashMap<String, Staff> staffStore;
+    private HashMap<String, Appointments> appointmentStore;
+    private HashMap<String, Clinicians > clinicianStore;
+    private HashMap<String, Facilities > facilitiesStore;
+    private HashMap<String, Patients > patientStore;
+    private HashMap<String, Prescriptions > prescriptionStore;
+    private HashMap<String, Referrals > referralsStore;
+
 
     private static final String FOLDER = "data/";
-    private static final String STAFFLOCATION = "staff";
+    private static final String STAFFLOCATION = "staff.csv";
+    private static final String APPOINTMENTLOCATION ="appointments.csv";
+    private static final String CLINICIANLOCATION = "clinicians.csv";
+    private static final String FACILITIESLOCATION = "facilities.csv";
+    private static final String PATIENTLOCATION = "patients.csv";
+    private static final String PRESCRIPTIONLOCATION = "Prescriptions.csv";
+    private static final String REFERRALSLOCATION = "Referrals.csv";
 
     /**
-     * constructor for healthcare system
+     * A constructor for the healthcare system model
      */
     public HealthcareSystem() {
         staffStore = new HashMap<String, Staff>();
-        // matthew create more new instance
-
+        appointmentStore = new HashMap<String, Appointments>();
+        clinicianStore = new HashMap<String, Clinicians>();
+        facilitiesStore = new HashMap<String, Facilities>();
+        patientStore = new HashMap<String, Patients>();
+        prescriptionStore = new HashMap<String, Prescriptions>();
+        referralsStore = new HashMap<String, Referrals>();
         loadAllData();
     }
 
@@ -44,6 +61,9 @@ public class HealthcareSystem {
             Staff staff = Staff.fromCVS(element);
             staffStore.put(staff.getID() ,staff);
         }
+    }
+    public ArrayList<Staff> getAllStaffMembers(){
+        return new ArrayList<>(staffStore.values());
     }
 
     /**
