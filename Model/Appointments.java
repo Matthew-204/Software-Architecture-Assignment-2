@@ -1,6 +1,6 @@
 package Model;
 
-public static class Appointments {
+public class Appointments {
     private String appointment_ID;
     private String patient_ID;
     private String clinician_ID;
@@ -16,7 +16,7 @@ public static class Appointments {
     private String date_Modified;
 
     public Appointments(String appointment_ID, String patient_ID, String clinician_ID, String facility_ID,
-                        String appointment_Date, int appointment_Time, int duration_Minutes, String appointment_Types,
+                        String appointment_Date, int appointment_Time,int duration_Minutes, String appointment_Types,
                         String status, String reason_for_Visit, String notes, String created_Date, String date_Modified) {
 
         this.appointment_ID = appointment_ID;
@@ -141,15 +141,5 @@ public static class Appointments {
 }
 
 
-public static Appointments fromCVS(String[] element) {
-    return new Appointments(element[0], element[1], element[2], element[3],
-            element[4], element[5], element[6], element[7], element[8],
-            element[9], element[10], element[11]), element[12], element[13];
-};
-
-
-public String toCSV() {
-    return
-}
 
 

@@ -12,16 +12,16 @@ public class HealthcareSystem {
 
     private HashMap<String, Staff> staffStore;
     private HashMap<String, Appointments> appointmentStore;
-    private HashMap<String, Clinicians > clinicianStore;
-    private HashMap<String, Facilities > facilitiesStore;
-    private HashMap<String, Patients > patientStore;
-    private HashMap<String, Prescriptions > prescriptionStore;
-    private HashMap<String, Referrals > referralsStore;
+    private HashMap<String, Clinicians> clinicianStore;
+    private HashMap<String, Facilities> facilitiesStore;
+    private HashMap<String, Patients> patientStore;
+    private HashMap<String, Prescriptions> prescriptionStore;
+    private HashMap<String, Referrals> referralsStore;
 
 
     private static final String FOLDER = "data/";
     private static final String STAFFLOCATION = "staff.csv";
-    private static final String APPOINTMENTLOCATION ="appointments.csv";
+    private static final String APPOINTMENTLOCATION = "appointments.csv";
     private static final String CLINICIANLOCATION = "clinicians.csv";
     private static final String FACILITIESLOCATION = "facilities.csv";
     private static final String PATIENTLOCATION = "patients.csv";
@@ -45,25 +45,24 @@ public class HealthcareSystem {
     /**
      * groups up all the load data call into one
      */
-    public void loadAllData()
-    {
+    public void loadAllData() {
         loadStaff();
-        loadAppointments();
+
 
     }
 
     /**
      * loads the staff instance into new objects from the file
      */
-    public void loadStaff()
-    {
+    public void loadStaff() {
         List<String[]> lines = File_Manager.readFile(FOLDER + STAFFLOCATION);
         for (String[] element : lines) {
             Staff staff = Staff.fromCVS(element);
-            staffStore.put(staff.getID() ,staff);
+            staffStore.put(staff.getID(), staff);
         }
     }
-    public ArrayList<Staff> getAllStaffMembers(){
+
+    public ArrayList<Staff> getAllStaffMembers() {
         return new ArrayList<>(staffStore.values());
     }
 
@@ -79,6 +78,7 @@ public class HealthcareSystem {
 
     /**
      * add new staff instance to the staff store and resaves cvs file
+     *
      * @param staff new instance to object
      */
     public void addStaff(Staff staff) {
@@ -86,26 +86,4 @@ public class HealthcareSystem {
         saveStaff();
     }
 
-    public void loadAppointments()
-    {
-        List<String[]> lines = File_Manager.readFile(FOLDER + APPOINTMENTLOCATION);
-        for (String[] element : lines) {
-            Appointments appointments = Appointments.fromCVS(element);
-            appointmentStore.put(Appointments.getID(),appointments);
-        }
-    }
-    public ArrayList<Appointments> getAPPOINTMENTLOCATION(){
-        return new ArrayList<>(appointmentStore.values());
-    }
-
-    public void saveAppointments() {
-        ArrayList<Appointments> appointmentList = new ArrayList<>(appointmentStore.values());
-        for (Appointments appointments : appointmentList) {
-            File_Manager.writeFile(FOLDER + STAFFLOCATION, appointments.toCSV());
-        }
-
-        public void addAppointments(Appointments appointments){
-            appointmentStore.put(Appointment.getID(), appointment);
-            saveStaff();
-        }
 }

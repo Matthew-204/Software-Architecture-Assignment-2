@@ -102,8 +102,8 @@ public class Staff extends Person {
      * @return returns string of elements
      */
     public String toCSV() {
-        return ID + "," + firstName + "," + lastName + "," + emailAddress + "," + phoneNumber + "," +
-                job_Role + "," + department_Name + "," + facility_ID + "," + employment_Status + "," +
+        return ID + "," + firstName + "," + lastName + "," + job_Role + "," + department_Name + "," +
+                facility_ID + "," + phoneNumber + "," + emailAddress + "," + employment_Status + "," +
                 start_Date + "," + line_Manager + "," + access_Level;
     }
 
