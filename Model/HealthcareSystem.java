@@ -48,7 +48,8 @@ public class HealthcareSystem {
     public void loadAllData()
     {
         loadStaff();
-        // add other instance of load data
+        loadAppointments();
+
     }
 
     /**
@@ -84,4 +85,27 @@ public class HealthcareSystem {
         staffStore.put(staff.getID(), staff);
         saveStaff();
     }
+
+    public void loadAppointments()
+    {
+        List<String[]> lines = File_Manager.readFile(FOLDER + APPOINTMENTLOCATION);
+        for (String[] element : lines) {
+            Appointments appointments = Appointments.fromCVS(element);
+            appointmentStore.put(Appointments.getID(),appointments);
+        }
+    }
+    public ArrayList<Appointments> getAPPOINTMENTLOCATION(){
+        return new ArrayList<>(appointmentStore.values());
+    }
+
+    public void saveAppointments() {
+        ArrayList<Appointments> appointmentList = new ArrayList<>(appointmentStore.values());
+        for (Appointments appointments : appointmentList) {
+            File_Manager.writeFile(FOLDER + STAFFLOCATION, appointments.toCSV());
+        }
+
+        public void addAppointments(Appointments appointments){
+            appointmentStore.put(Appointment.getID(), appointment);
+            saveStaff();
+        }
 }

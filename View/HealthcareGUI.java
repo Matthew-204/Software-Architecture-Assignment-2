@@ -1,13 +1,19 @@
 package View;
 
+import Controller.HealthcareController;
+import Model.HealthcareSystem;
 import Model.Staff;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import java.awt.*;
 import java.awt.event.*;
+import java.nio.charset.StandardCharsets;
+import java.util.ArrayList;
+import java.util.Objects;
 
 public class HealthcareGUI extends JFrame {
+    private HealthcareController controller;
     private JTabbedPane tabsPane;
     private final JTextField exampleField = new JTextField();
     private final JButton exampleButton = new JButton("Submit");
@@ -37,8 +43,40 @@ public class HealthcareGUI extends JFrame {
         createTabs();
         setVisible(true);
 
-    }
 
+    }
+    public void setController(HealthcareController controller){
+        this.controller = controller;
+
+    }
+////    private void loadData(){
+////        loadStaff();
+////    }
+////    private void loadStaff() {
+//
+//    }
+    public void refreshStaffTable(ArrayList<Staff>listofStaff){
+        staffTableModel.setRowCount(0);
+        for (int i = 0;i < listofStaff.size(); i = i+1){
+            Staff staff = listofStaff.get(i);
+
+            Object[]row = {
+                    staff.getID(),
+                    staff.getFirstName(),
+                    staff.getLastName(),
+                    staff.getJob_Role(),
+                    staff.getDepartment_Name(),
+                    staff.getFacility_ID(),
+                    staff.getPhoneNumber(),
+                    staff.getEmailAddress(),
+                    staff.getEmployment_Status(),
+                    staff.getStart_Date(),
+                    staff.getLine_Manager(),
+                    staff.getAccess_Level(),
+            };
+            staffTableModel.addRow(row);
+        }
+    }
     private JPanel createMenu() {
         JPanel setPanel = new JPanel(new BorderLayout());
         JPanel panel = new JPanel(new GridLayout(3, 2));

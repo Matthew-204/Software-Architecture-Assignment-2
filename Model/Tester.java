@@ -15,7 +15,7 @@ public class Tester {
 
         System.out.println(linda.phoneNumber);
 
-        List<String[]> patientData = File_Manager.readFile("data/staff.csv");
+        List<String[]> patientData = File_Manager.readFile("data/prescriptions.csv");
 
         for (String[] line : patientData) { // get the line
             for (String element : line) { // get the nested element
