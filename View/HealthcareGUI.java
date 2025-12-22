@@ -1,7 +1,9 @@
 package View;
 
 import Controller.HealthcareController;
+import Model.Appointments;
 import Model.HealthcareSystem;
+import Model.Patients;
 import Model.Staff;
 
 import javax.swing.*;
@@ -55,12 +57,12 @@ public class HealthcareGUI extends JFrame {
 ////    private void loadStaff() {
 //
 //    }
-    public void refreshStaffTable(ArrayList<Staff>listofStaff){
+    public void refreshStaffTable(ArrayList<Staff>listofStaff) {
         staffTableModel.setRowCount(0);
-        for (int i = 0;i < listofStaff.size(); i = i+1){
+        for (int i = 0; i < listofStaff.size(); i = i + 1) {
             Staff staff = listofStaff.get(i);
 
-            Object[]row = {
+            Object[] row = {
                     staff.getID(),
                     staff.getFirstName(),
                     staff.getLastName(),
@@ -75,8 +77,58 @@ public class HealthcareGUI extends JFrame {
                     staff.getAccess_Level(),
             };
             staffTableModel.addRow(row);
+        };
+    };
+
+    public void refreshAppointmentTable(ArrayList< Appointments >listofAppointment) {
+        appointmentTableModel.setRowCount(0);
+        for (int i = 0; i < listofAppointment.size(); i = i + 1) {
+            Appointments appointment = listofAppointment.get(i);
+
+            Object[] row = {
+                    appointment.getAppointment_ID(),
+                    appointment.getPatient_ID(),
+                    appointment.getClinician_ID(),
+                    appointment.getFacility_ID(),
+                    appointment.getAppointment_Date(),
+                    String.valueOf(appointment.getAppointment_Time()),
+                    String.valueOf(appointment.getDuration_Minutes()),
+                    appointment.getAppointment_Types(),
+                    appointment.getStatus(),
+                    appointment.getReason_for_Visit(),
+                    appointment.getNotes(),
+                    appointment.getCreated_Date(),
+                    appointment.getDate_Modified(),
+            };
+            appointmentTableModel.addRow(row);
         }
     }
+
+    public void refreshPatientsTable(ArrayList<Patients>listofPatients) {
+        staffTableModel.setRowCount(0);
+        for (int i = 0; i < listofPatients.size(); i = i + 1) {
+            Patients patients = listofPatients.get(i);
+
+            Object[] row = {
+                    patients.getID(),
+                    patients.getFirstName(),
+                    patients.getLastName(),
+                    patients.getDate_of_Birth(),
+                    patients.getNhs_Number(),
+                    patients.getGender(),
+                    patients.getPhoneNumber(),
+                    patients.getEmailAddress(),
+                    patients.getHome_Address(),
+                    patients.getPostcode(),
+                    patients.getEmergency_contact_Name(),
+                    patients.getEmergency_contact_phone_Number(),
+                    patients.getRegistration_Date(),
+                    patients.getGp_surgery_ID(),
+            };
+            patientTableModel.addRow(row);
+        };
+    };
+
     private JPanel createMenu() {
         JPanel setPanel = new JPanel(new BorderLayout());
         JPanel panel = new JPanel(new GridLayout(3, 2));
@@ -261,11 +313,10 @@ public class HealthcareGUI extends JFrame {
         JLabel titleLabel = new JLabel("Staff");
         titleLabel.setFont(new Font("Arial", Font.BOLD, 18));
         panel.add(titleLabel, BorderLayout.NORTH);
-        String[] columns ={"staff_id","first_name","last_name","role","department","facility_id","phone_number","email"
-                ,"employment status","start_date","line_manager","access_level"};
+        String[] columns ={"staff_id","first_name","last_name","facility id","phone number","email","department","role"
+                            ,"employment_status","start_date","line_manager","access_level"};
             staffTableModel = new DefaultTableModel(columns, 0) {
             public boolean isCellEditable(int row, int column) {
-
                 return false;
             }
         };

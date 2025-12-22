@@ -47,7 +47,8 @@ public class HealthcareSystem {
      */
     public void loadAllData() {
         loadStaff();
-
+        loadAppointment();
+        loadPatient();
 
     }
 
@@ -86,4 +87,51 @@ public class HealthcareSystem {
         saveStaff();
     }
 
+    public void loadAppointment() {
+        List<String[]> lines = File_Manager.readFile(FOLDER + APPOINTMENTLOCATION);
+        for (String[] element : lines) {
+            Appointments appointments = Appointments.fromCVS(element);
+            appointmentStore.put(appointments.getAppointment_ID(), appointments);
+        }
+    }
+
+    public ArrayList<Appointments> getAllAppointments() {
+        return new ArrayList<>(appointmentStore.values());
+    }
+
+    public void saveAppointment() {
+        ArrayList<Appointments> appointmentList = new ArrayList<Appointments>(appointmentStore.values());
+        for (Appointments appointments : appointmentList) {
+            File_Manager.writeFile(FOLDER + APPOINTMENTLOCATION, appointments.toCSV());
+        }
+    }
+
+    public void addAppointment(Appointments appointments) {
+        appointmentStore.put(appointments.getAppointment_ID(), appointments);
+        saveStaff();
+    }
+
+    public void loadPatient() {
+        List<String[]> lines = File_Manager.readFile(FOLDER + PATIENTLOCATION);
+        for (String[] element : lines) {
+            Patients patients = Patients.fromCVS(element);
+            patientStore.put(patients.getID(), patients);
+        }
+    }
+
+    public ArrayList<Patients> getAllPatients() {
+        return new ArrayList<>(patientStore.values());
+    }
+
+    public void savePatient() {
+        ArrayList<Patients> patientList = new ArrayList<Patients>(patientStore.values());
+        for (Patients patient : patientList) {
+            File_Manager.writeFile(FOLDER + PATIENTLOCATION, patient.toCSV());
+        }
+    }
+
+    public void addStaff(Patients patient) {
+        patientStore.put(patient.getID(), patient);
+        savePatient();
+    }
 }

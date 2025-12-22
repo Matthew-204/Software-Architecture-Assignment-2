@@ -6,8 +6,8 @@ public class Appointments {
     private String clinician_ID;
     private String facility_ID;
     private String appointment_Date;
-    private int appointment_Time;
-    private int duration_Minutes;
+    private String appointment_Time;
+    private String duration_Minutes;
     private String appointment_Types;
     private String status;
     private String reason_for_Visit;
@@ -16,7 +16,7 @@ public class Appointments {
     private String date_Modified;
 
     public Appointments(String appointment_ID, String patient_ID, String clinician_ID, String facility_ID,
-                        String appointment_Date, int appointment_Time,int duration_Minutes, String appointment_Types,
+                        String appointment_Date, String appointment_Time, String duration_Minutes, String appointment_Types,
                         String status, String reason_for_Visit, String notes, String created_Date, String date_Modified) {
 
         this.appointment_ID = appointment_ID;
@@ -75,19 +75,19 @@ public class Appointments {
         this.appointment_Date = appointment_Date;
     }
 
-    public int getAppointment_Time() {
+    public String getAppointment_Time() {
         return appointment_Time;
     }
 
-    public void setAppointment_Time(int appointment_Time) {
+    public void setAppointment_Time(String appointment_Time) {
         this.appointment_Time = appointment_Time;
     }
 
-    public int getDuration_Minutes() {
+    public String getDuration_Minutes() {
         return duration_Minutes;
     }
 
-    public void setDuration_Minutes(int duration_Minutes) {
+    public void setDuration_Minutes(String duration_Minutes) {
         this.duration_Minutes = duration_Minutes;
     }
 
@@ -138,7 +138,21 @@ public class Appointments {
     public void setDate_Modified(String date_Modified) {
         this.date_Modified = date_Modified;
     }
+    public static Appointments fromCVS(String[] element) {
+        return new Appointments(element[0], element[1], element[2], element[3],
+                element[4], element[5], element[6] , element[7], element[8],
+                element[9], element[10], element[11], element[12]);
+    };
+    public String toCSV() {
+        return appointment_ID + "," + patient_ID + "," + clinician_ID  + "," + facility_ID + "," + appointment_Date
+                + "," + appointment_Time + "," + duration_Minutes + "," + appointment_Types + "," + status + "," + reason_for_Visit
+                 + "," + notes + "," +created_Date +","+date_Modified;
+    }
+
+
+
 }
+
 
 
 

@@ -1,7 +1,7 @@
 package Model;
 
 public class Patients extends Person {
-        private char gender;
+        private String gender;
         private String date_of_Birth;
         private String home_Address;
         private String nhs_Number;
@@ -17,7 +17,7 @@ public class Patients extends Person {
 //    }
 
     public Patients(String ID, String firstName, String lastName, String emailAddress, String phoneNumber,
-                    String patient_ID, char gender,String date_of_Birth, String home_Address,
+                    String gender, String date_of_Birth, String home_Address,
                     String nhs_Number, String postcode, String emergency_contact_Name,
                     String emergency_contact_phone_Number, String registration_Date, String gp_surgery_ID)
     {
@@ -36,11 +36,11 @@ public class Patients extends Person {
     }
 
 
-    public char getGender() {
+    public String getGender() {
         return gender;
     }
 
-    public void setGender(char gender) {
+    public void setGender(String gender) {
         this.gender = gender;
     }
 
@@ -107,6 +107,19 @@ public class Patients extends Person {
     public void setGp_surgery_ID(String gp_surgery_ID) {
         this.gp_surgery_ID = gp_surgery_ID;
     }
-}
+
+    public static Patients fromCVS(String[] element) {
+        return new Patients(element[0], element[1], element[2], element[3],
+            element[4], element[5], element[6], element[7], element[8],
+            element[9], element[10], element[11], element[12], element[13]);
+    };
+
+    public String toCSV() {
+        return ID + "," + firstName + "," + lastName + "," + date_of_Birth + "," + nhs_Number + "," + gender
+            + "," + phoneNumber + "," + emailAddress + "," + home_Address + "," + postcode
+            + "," + emergency_contact_Name + "," + emergency_contact_phone_Number + "," + registration_Date
+            + "," + gp_surgery_ID;
+    };
+};
 
 

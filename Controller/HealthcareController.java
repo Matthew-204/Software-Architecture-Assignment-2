@@ -11,9 +11,6 @@ public class HealthcareController {
     private final HealthcareGUI view;
     private final HealthcareSystem model;
 
-
-
-
     public HealthcareController(HealthcareGUI view, HealthcareSystem model) {
         this.view = view;
         this.model = model;
@@ -21,13 +18,14 @@ public class HealthcareController {
 
         view.addSetListener(new SetListener());
     }
-    private void loadTables(){
-    view.refreshStaffTable(model.getAllStaffMembers());
-
-
+    private void loadTables()
+    {
+        view.refreshStaffTable(model.getAllStaffMembers());
+        view.refreshAppointmentTable(model.getAllAppointments());
+        view.refreshPatientsTable(model.getAllPatients());
     }
 
-private class SetListener implements ActionListener {
+    private class SetListener implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
             System.out.println("Showing Text: " + view.getText());
