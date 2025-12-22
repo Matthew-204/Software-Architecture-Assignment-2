@@ -108,7 +108,7 @@ public class HealthcareSystem {
 
     public void addAppointment(Appointments appointments) {
         appointmentStore.put(appointments.getAppointment_ID(), appointments);
-        saveStaff();
+        saveAppointment();
     }
 
     public void loadPatient() {
@@ -130,7 +130,7 @@ public class HealthcareSystem {
         }
     }
 
-    public void addStaff(Patients patient) {
+    public void addPatient(Patients patient) {
         patientStore.put(patient.getID(), patient);
         savePatient();
     }
