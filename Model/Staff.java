@@ -10,13 +10,12 @@ public class Staff extends Person {
     private String line_Manager;
     private String access_Level;
 
-    public Staff() {
-        super();
-    }
+    public Staff() {super();}
 
     public Staff(String ID, String firstName, String lastName, String emailAddress, String phoneNumber,
                  String job_Role, String department_Name, String facility_ID,
-                 String employment_Status, String start_Date, String line_Manager, String access_Level) {
+                 String employment_Status, String start_Date, String line_Manager, String access_Level)
+    {
         super(ID, firstName, lastName, emailAddress, phoneNumber);
 
         this.job_Role = job_Role;

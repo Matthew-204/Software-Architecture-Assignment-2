@@ -118,4 +118,17 @@ public class Facilities {
     public void setSpecialities_Offered(String specialities_Offered) {
         this.specialities_Offered = specialities_Offered;
     }
+
+    public static Facilities fromCVS(String[] element) {
+        return new Facilities(element[0], element[1], element[2], element[3],
+                element[4], element[5], element[6], element[7], element[8],
+                Integer.parseInt(element[9]), element[10]);
+    };
+    public String toCSV() {
+        return  facility_ID + "," + facility_Name + "," + facility_Type + "," + Address + "," + postCode + "," +
+                phone_number + "," + email_Address + "," + opening_Hours  + "," + manager_Name  + "," + capacity
+                + "," + specialities_Offered;
+    }
 }
+
+

@@ -14,13 +14,12 @@ public class Clinicians extends Person {
         super();
     }
 
-    public Clinicians( String ID, String firstName, String lastName, String emailAddress, String phoneNumber,
+    public Clinicians(String ID, String firstName, String lastName, String emailAddress, String phoneNumber,
                       String title, String speciality, String gmc_Number, String work_place_ID,
                       String work_place_Type, String employment_Status, String start_Date)
     {
 
         super(ID, firstName, lastName, emailAddress, phoneNumber);
-
 
         this.title = title;
         this.speciality = speciality;
@@ -31,7 +30,6 @@ public class Clinicians extends Person {
         this.start_Date = start_Date;
 
     }
-
 
     public String getTitle() {
         return title;
@@ -88,4 +86,17 @@ public class Clinicians extends Person {
     public void setStart_Date(String start_Date) {
         this.start_Date = start_Date;
     }
+
+    public static Clinicians fromCVS(String[] element) {
+        return new Clinicians (element[0], element[1], element[2], element[3],
+                element[4], element[5], element[6], element[7], element[8],
+                element[9], element[10], element[11]);
+    };
+    public String toCSV() {
+        return ID + "," + firstName + "," + lastName + "," + emailAddress + "," + phoneNumber + "," + title
+                + "," + speciality + "," + gmc_Number + "," + work_place_ID + "," + work_place_Type
+                + "," + employment_Status + "," + start_Date;
+    }
 }
+
+

@@ -1,10 +1,7 @@
 package View;
 
 import Controller.HealthcareController;
-import Model.Appointments;
-import Model.HealthcareSystem;
-import Model.Patients;
-import Model.Staff;
+import Model.*;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
@@ -126,9 +123,102 @@ public class HealthcareGUI extends JFrame {
                     patients.getGp_surgery_ID(),
             };
             patientTableModel.addRow(row);
-        };
-    };
+        }
+    }
+    public void refreshPrescriptionTable(ArrayList < Prescriptions > listofPrescriptions) {
+        prescriptionTableModel.setRowCount(0);
+        for (int i = 0; i < listofPrescriptions.size(); i = i + 1) {
+            Prescriptions prescriptions = listofPrescriptions.get(i);
 
+            Object[] row = {
+                    prescriptions.getPrescription_ID(),
+                    prescriptions.getPatient_ID(),
+                    prescriptions.getClinician_ID(),
+                    prescriptions.getAppointment_ID(),
+                    prescriptions.getPrescription_Date(),
+                    prescriptions.getMedication_Name(),
+                    prescriptions.getMedication_Dosage(),
+                    prescriptions.getFrequency(),
+                    prescriptions.getDuration_Days(),
+                    prescriptions.getMedication_Quantity(),
+                    prescriptions.getInstructions(),
+                    prescriptions.getPharmacy_Name(),
+                    prescriptions.getStatus(),
+                    prescriptions.getIssue_Date(),
+                    prescriptions.getCollection_Date(),
+            };
+            prescriptionTableModel.addRow(row);
+        }
+    }
+        public void refreshReferralTable(ArrayList < Referrals > listofReferral) {
+                referralsTableModel.setRowCount(0);
+                for (int i = 0; i < listofReferral.size(); i = i + 1) {
+                    Referrals referrals = listofReferral.get(i);
+
+                    Object[] row = {
+                            referrals.getReferral_ID(),
+                            referrals.getPatient_ID(),
+                            referrals.getReferring_clinician_ID(),
+                            referrals.getReferred_to_clinician_ID(),
+                            referrals.getReferring_facility_ID(),
+                            referrals.getReferring_to_facility_ID(),
+                            referrals.getReferral_Date(),
+                            referrals.getUrgency_Level(),
+                            referrals.getReferral_Reason(),
+                            referrals.getClinical_Summary(),
+                            referrals.getRequested_Investigation(),
+                            referrals.getStatus(),
+                            referrals.getAppointment_ID(),
+                            referrals.getNotes(),
+                            referrals.getCreated_Date(),
+                            referrals.getLast_Updated(),
+                    };
+                    referralsTableModel.addRow(row);
+                }
+        }
+        public void refreshClinicianTable(ArrayList < Clinicians > listofclinician) {
+            cliniciansTableModel.setRowCount(0);
+            for (int i = 0; i < listofclinician.size(); i = i + 1) {
+                Clinicians clinicians= listofclinician.get(i);
+    
+                Object[] row = {
+                        clinicians.getID(),
+                        clinicians.getFirstName(),
+                        clinicians.getLastName(),
+                        clinicians.getEmailAddress(),
+                        clinicians.getGmc_Number(),
+                        clinicians.getTitle(),
+                        clinicians.getSpeciality(),
+                        clinicians.getGmc_Number(),
+                        clinicians.getWork_place_ID(),
+                        clinicians.getWork_place_Type(),
+                        clinicians.getEmployment_Status(),
+                        clinicians.getStart_Date(),
+                };
+                cliniciansTableModel.addRow(row);
+            }
+        }
+        public void refreshFacilitiesTable(ArrayList < Facilities > listofFacilities) {
+            facilitiesTableModel.setRowCount(0);
+            for (int i = 0; i < listofFacilities.size(); i = i + 1) {
+                Facilities facilities = listofFacilities.get(i);
+    
+                Object[] row = {
+                        facilities.getFacility_ID(),
+                        facilities.getFacility_Name(),
+                        facilities.getFacility_Type(),
+                        facilities.getAddress(),
+                        facilities.getPostCode(),
+                        facilities.getPhone_number(),
+                        facilities.getEmail_Address(),
+                        facilities.getOpening_Hours(),
+                        facilities.getManager_Name(),
+                        facilities.getCapacity(),
+                        facilities.getSpecialities_Offered(),
+                };
+                facilitiesTableModel.addRow(row);
+            }
+        }
     private JPanel createMenu() {
         JPanel setPanel = new JPanel(new BorderLayout());
         JPanel panel = new JPanel(new GridLayout(3, 2));
@@ -156,7 +246,6 @@ public class HealthcareGUI extends JFrame {
      private JPanel createPatientPanel(){
         JPanel panel = new JPanel(new BorderLayout(10, 10));
         panel.setBorder(BorderFactory.createEmptyBorder(10,10,10,10));
-
         JLabel titleLabel = new JLabel("Patients");
         titleLabel.setFont(new Font("Arial", Font.BOLD, 18));
         panel.add(titleLabel, BorderLayout.NORTH);
@@ -291,10 +380,10 @@ public class HealthcareGUI extends JFrame {
         JPanel buttonPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
 
         JButton addCliniciansButton = new JButton("Add Clinicians");
-        JButton addRemoveCliniciansButton = new JButton("Remove Clinicians");
-        JButton addUpdateButton = new JButton("Update");
-        JButton addClinicianEditButton = new JButton("Edit");
-        JButton addRefreshButton = new JButton("Refresh");
+        JButton addRemoveCliniciansButton = new JButton("Delete Clinicians");
+        JButton addUpdateButton = new JButton("Update Clinicians ");
+        JButton addClinicianEditButton = new JButton("Edit Clinicians");
+        JButton addRefreshButton = new JButton("Refresh Clinicians");
 
         buttonPanel.add(addCliniciansButton);
         buttonPanel.add(addRemoveCliniciansButton);
@@ -326,10 +415,10 @@ public class HealthcareGUI extends JFrame {
         JPanel buttonPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
 
         JButton addStaffButton = new JButton("Add Staff");
-        JButton addRemoveStaffButton = new JButton("Remove Staff");
-        JButton addUpdateButton = new JButton("Update");
-        JButton addStaffEditButton = new JButton("Edit");
-        JButton addRefreshButton = new JButton("Refresh");
+        JButton addRemoveStaffButton = new JButton("Delete Staff");
+        JButton addUpdateButton = new JButton("Update Staff");
+        JButton addStaffEditButton = new JButton("Edit Staff");
+        JButton addRefreshButton = new JButton("Refresh Staff");
 
         buttonPanel.add(addStaffButton);
         buttonPanel.add(addRemoveStaffButton);
@@ -363,9 +452,9 @@ public class HealthcareGUI extends JFrame {
 
         JButton addFacilitiesButton = new JButton("Add Facilities");
         JButton addDeleteFacilitiesButton = new JButton("Delete Facilities");
-        JButton addUpdateButton = new JButton("Update");
-        JButton addStaffEditButton = new JButton("Edit");
-        JButton addRefreshButton = new JButton("Refresh");
+        JButton addUpdateButton = new JButton("Update Facilities");
+        JButton addStaffEditButton = new JButton("Edit Facilities");
+        JButton addRefreshButton = new JButton("Refresh Facilities");
 
         buttonPanel.add(addFacilitiesButton);
         buttonPanel.add(addDeleteFacilitiesButton);
@@ -401,7 +490,7 @@ public class HealthcareGUI extends JFrame {
         JButton addDeleteReferralButton = new JButton("Delete Referral");
         JButton addUpdateReferralButton = new JButton("Update Referral");
         JButton addReferralEditButton = new JButton("Edit Referral");
-        JButton addRefreshButton = new JButton("Refresh");
+        JButton addRefreshButton = new JButton("Refresh Referral");
 
         buttonPanel.add(addCreateReferralButton);
         buttonPanel.add(addDeleteReferralButton);
@@ -421,5 +510,20 @@ public class HealthcareGUI extends JFrame {
     public void addSetListener(ActionListener al) {
         exampleButton.addActionListener(al); // Allows the controller to get information
     }
-
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

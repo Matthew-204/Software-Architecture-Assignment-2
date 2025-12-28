@@ -16,7 +16,7 @@ public class HealthcareSystem {
     private HashMap<String, Facilities> facilitiesStore;
     private HashMap<String, Patients> patientStore;
     private HashMap<String, Prescriptions> prescriptionStore;
-    private HashMap<String, Referrals> referralsStore;
+    private HashMap<String, Referrals> referralStore;
 
 
     private static final String FOLDER = "data/";
@@ -38,7 +38,7 @@ public class HealthcareSystem {
         facilitiesStore = new HashMap<String, Facilities>();
         patientStore = new HashMap<String, Patients>();
         prescriptionStore = new HashMap<String, Prescriptions>();
-        referralsStore = new HashMap<String, Referrals>();
+        referralStore = new HashMap<String, Referrals>();
         loadAllData();
     }
 
@@ -49,7 +49,10 @@ public class HealthcareSystem {
         loadStaff();
         loadAppointment();
         loadPatient();
-
+        loadPrescription();
+        loadReferrals();
+        loadClinician();
+        loadFacilities();
     }
 
     /**
@@ -133,5 +136,107 @@ public class HealthcareSystem {
     public void addPatient(Patients patient) {
         patientStore.put(patient.getID(), patient);
         savePatient();
+    }
+
+    public void loadPrescription() {
+        List<String[]> lines = File_Manager.readFile(FOLDER + PRESCRIPTIONLOCATION);
+        for (String[] element : lines) {
+            Prescriptions prescriptions = Prescriptions.fromCVS(element);
+            prescriptionStore.put(prescriptions.getPrescription_ID(), prescriptions);
+        }
+
+    }
+
+    public ArrayList<Prescriptions> getAllPrescriptions() {
+        return new ArrayList<>(prescriptionStore.values());
+    }
+
+    public void savePrescription() {
+        ArrayList<Prescriptions> prescriptionList = new ArrayList<Prescriptions>(prescriptionStore.values());
+        for (Prescriptions prescription : prescriptionList) {
+            File_Manager.writeFile(FOLDER + PRESCRIPTIONLOCATION, prescription.toCSV());
+        }
+    }
+
+    public void addPrescription(Prescriptions prescriptions) {
+        prescriptionStore.put(prescriptions.getPrescription_ID(), prescriptions);
+        savePrescription();
+    }
+
+    public void loadReferrals() {
+        List<String[]> lines = File_Manager.readFile(FOLDER + REFERRALSLOCATION );
+        for (String[] element : lines) {
+            Referrals referrals = Referrals.fromCVS(element);
+            referralStore.put(referrals.getReferral_ID(), referrals);
+        }
+    }
+    public ArrayList<Referrals> getAllReferrals() {
+        return new ArrayList<>(referralStore.values());
+    }
+
+    public void saveReferrals() {
+        ArrayList<Referrals> referralList = new ArrayList<Referrals>(referralStore.values());
+        for (Referrals referrals : referralList) {
+            File_Manager.writeFile(FOLDER + REFERRALSLOCATION, referrals.toCSV());
+        }
+    }
+    public void addReferrals(Referrals referrals) {
+        referralStore.put(referrals.getReferral_ID(), referrals);
+        saveReferrals();
+    }
+
+    public void loadClinician() {
+        List<String[]> lines = File_Manager.readFile(FOLDER + CLINICIANLOCATION);
+        for (String[] element : lines) {
+            Clinicians clinicians = null;
+            try {
+                clinicians = Clinicians.fromCVS(element);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            clinicianStore.put(clinicians.getID(), clinicians);
+        }
+    }
+    public ArrayList<Clinicians> getAllClinicians() {
+        return new ArrayList<>(clinicianStore.values());
+    }
+
+    public void saveClinician() {
+        ArrayList<Clinicians> clinicianList = new ArrayList<Clinicians>(clinicianStore.values());
+        for (Clinicians clinicians : clinicianList) {
+            File_Manager.writeFile(FOLDER + CLINICIANLOCATION, clinicians.toCSV());
+        }
+    }
+    public void addClinicians(Clinicians clinicians) {
+        clinicianStore.put(clinicians.getID(), clinicians);
+        saveClinician();{
+        }
+    }
+    public void loadFacilities() {
+        List<String[]> lines = File_Manager.readFile(FOLDER + FACILITIESLOCATION);
+        for (String[] element : lines) {
+            Facilities facilities = null;
+            try {
+                facilities = Facilities.fromCVS(element);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            facilitiesStore.put(facilities.getFacility_ID(),facilities);
+        }
+    }
+    public ArrayList<Facilities> getAllFacilities() {
+        return new ArrayList<>(facilitiesStore.values());
+    }
+
+    public void saveFacilities() {
+        ArrayList<Facilities> FacilitiesList = new ArrayList<Facilities>(facilitiesStore.values());
+        for (Facilities facilities :FacilitiesList) {
+            File_Manager.writeFile(FOLDER + FACILITIESLOCATION, facilities.toCSV());
+        }
+    }
+    public void addFacilities(Facilities facilities) {
+        facilitiesStore.put(facilities.getFacility_ID(),facilities);
+        saveFacilities();{
+        }
     }
 }

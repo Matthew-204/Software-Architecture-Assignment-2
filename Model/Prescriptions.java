@@ -20,8 +20,8 @@ public class Prescriptions {
     public Prescriptions(String prescription_ID, String patient_ID, String clinician_ID, String appointment_ID,
                          String prescription_Date, String medication_Name, int medication_Dosage, String frequency,
                          int duration_Days, int medication_Quantity, String instructions, String pharmacy_Name,
-                         String status, String issue_Date, String collection_Date)
-    {
+                         String status, String issue_Date, String collection_Date) {
+
         this.prescription_ID = prescription_ID;
         this.patient_ID = patient_ID;
         this.clinician_ID = clinician_ID;
@@ -160,5 +160,23 @@ public class Prescriptions {
     public void setCollection_Date(String collection_Date) {
         this.collection_Date = collection_Date;
     }
+
+    public static Prescriptions fromCVS(String[] element) {
+        return new Prescriptions(element[0], element[1], element[2], element[3],
+                element[4], element[5], Integer.parseInt(element[6]), element[7], Integer.parseInt(element[8]),
+                Integer.parseInt(element[9]), element[10], element[11], element[12], element[13],
+                element[14]);
+    };
+    public String toCSV() {
+        return prescription_ID + "," + patient_ID + "," + clinician_ID + "," + appointment_ID + "," + appointment_ID
+                + "," + prescription_Date + "," + medication_Name + "," + medication_Dosage + "," + frequency + "," +
+                duration_Days + "," + medication_Quantity + "," + instructions + "," + pharmacy_Name + "," + status
+                + "," + issue_Date + "," + collection_Date;
+
+
+    }
+
+
+
 }
 

@@ -146,7 +146,7 @@ public class Appointments {
     public String toCSV() {
         return appointment_ID + "," + patient_ID + "," + clinician_ID  + "," + facility_ID + "," + appointment_Date
                 + "," + appointment_Time + "," + duration_Minutes + "," + appointment_Types + "," + status + "," + reason_for_Visit
-                 + "," + notes + "," +created_Date +","+date_Modified;
+                 + "," + notes + "," + created_Date + "," + date_Modified;
     }
 
 

@@ -22,12 +22,12 @@ public class Referrals {
                      String referred_to_clinician_ID, String referring_facility_ID, String referring_to_facility_ID,
                      String referral_Date, String urgency_Level, String referral_Reason, String clinical_Summary,
                      String requested_Investigation, String status, String appointment_ID, String notes,
-                     String created_Date,String last_Updated){
+                     String created_Date, String last_Updated) {
 
 
         this.referral_ID = referral_ID;
         this.patient_ID = patient_ID;
-        this.referring_clinician_ID =referring_clinician_ID;
+        this.referring_clinician_ID = referring_clinician_ID;
         this.referred_to_clinician_ID = referred_to_clinician_ID;
         this.referring_facility_ID = referring_facility_ID;
         this.referring_to_facility_ID = referring_to_facility_ID;
@@ -170,5 +170,18 @@ public class Referrals {
 
     public void setLast_Updated(String last_Updated) {
         this.last_Updated = last_Updated;
+    }
+
+    public static Referrals fromCVS(String[] element) {
+        return new Referrals(element[0], element[1], element[2], element[3],
+                element[4], element[5], element[6], element[7], element[8],
+                element[9], element[10], element[11], element[12], element[13],
+                element[14], element[15]);
+        };
+    public String toCSV() {
+        return referral_ID + "," + patient_ID + "," + referring_clinician_ID + "," + referred_to_clinician_ID + "," +
+                referring_facility_ID + "," + referring_to_facility_ID + "," + referral_Date + "," + urgency_Level
+                + "," + referral_Reason + "," + clinical_Summary  + "," + requested_Investigation + "," + status + "," +
+                appointment_ID + "," + notes + "," + created_Date + "," + last_Updated;
     }
 }
