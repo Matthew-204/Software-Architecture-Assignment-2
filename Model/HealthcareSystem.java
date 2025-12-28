@@ -2,8 +2,6 @@ package Model;
 
 import File_handler.File_Manager;
 
-import java.nio.channels.SelectableChannel;
-import java.nio.channels.SelectionKey;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -238,5 +236,75 @@ public class HealthcareSystem {
         facilitiesStore.put(facilities.getFacility_ID(),facilities);
         saveFacilities();{
         }
+    }
+        // Creating methods for the Patient Display view
+    public void deletePatient(String patientID) {
+    }
+    public void editPatient(String patientID, Patients patient){
+    }
+    public void updatePatient(String patientID, Patients patient) {
+    }
+    public void refreshPatient(String patientID, Patients patient) {
+    }
+
+        // Creating methods for the Appointment Display view
+    public void deleteAppointment(String appointmentID) {
+    }
+    public void updateAppointment(String appointmentID, Appointments appointment) {
+    }
+    public void editAppointment(String appointmentID, Appointments appointment) {
+    }
+    public void refreshAppointment(String appointmentID, Appointments appointment) {
+    }
+
+        // Creating methods for the Prescription Display view
+    public void deletePrescription(Prescriptions prescriptionID) {
+    }
+    public void updatePrescription(String prescriptionID, Prescriptions prescription) {
+    }
+    public void editPrescription(String prescriptionID, Prescriptions prescription) {
+    }
+    public void changePrescription(String prescriptionID, Prescriptions prescription) {
+    }
+
+        // Creating methods for the Clinician Display view
+    public void deleteClinician(Clinicians clinicianID) {
+    }
+    public void updateClinician(String clinicianID, Clinicians clinician) {
+    }
+    public void editClinician(String clinicianID, Clinicians clinician) {
+    }
+    public void refreshClinician(String clinicianID, Clinicians clinician) {
+    }
+
+        // Creating methods for the Staff Display view
+    public void deleteStaff(Staff staffID) {
+    }
+    public void updateStaff(String staffID, Staff staff) {
+    }
+    public void editStaff(String staffID, Staff staff) {
+    }
+    public void refreshStaff(String staffID, Staff staff) {
+    }
+
+        // Creating methods for the Facilities Display View
+    public void deleteFacilities(Facilities facilityID) {
+    }
+    public void updateFacilities(String facilityID, Facilities facilities) {
+    }
+    public void editFacilities(String facilityID, Facilities facilities) {
+    }
+    public void refreshFacilities(String facilityID, Facilities facilities) {
+    }
+        // Creating methods for the Referral Display View
+    public void createReferrals(Referrals referrals) {
+    }
+    public void deleteReferrals(Referrals referralID) {
+    }
+    public void updateReferrals(String referralID, Referrals referrals) {
+    }
+    public void editReferrals(String referralID, Referrals referrals) {
+    }
+    public void refreshReferrals(String referralID, Referrals referrals) {
     }
 }

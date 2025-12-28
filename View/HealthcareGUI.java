@@ -7,9 +7,7 @@ import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import java.awt.*;
 import java.awt.event.*;
-import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
-import java.util.Objects;
 
 public class HealthcareGUI extends JFrame {
     private HealthcareController controller;
@@ -509,6 +507,24 @@ public class HealthcareGUI extends JFrame {
 
     public void addSetListener(ActionListener al) {
         exampleButton.addActionListener(al); // Allows the controller to get information
+    }
+    // Creating a method to show the Healthcare Controllers Messages.
+    public void showMessage(String s) {
+    }
+    // Creating a method for the display view ArrayLists.
+    public void displayReferrals(ArrayList<Referrals> allReferrals) {
+    }
+    public void displayFacilities(ArrayList<Facilities> allFacilities) {
+    }
+    public void displayStaff(ArrayList<Staff> allStaffMembers) {
+    }
+    public void displayClinicians(ArrayList<Clinicians> allClinicians) {
+    }
+    public void displayPrescriptions(ArrayList<Prescriptions> allPrescriptions) {
+    }
+    public void displayAppointments(ArrayList<Appointments> allAppointments) {
+    }
+    public void displayPatients(ArrayList<Patients> allPatients) {
     }
 }
 
