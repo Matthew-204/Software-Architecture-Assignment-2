@@ -7,10 +7,10 @@ public class Prescriptions {
     private String appointment_ID;
     private String prescription_Date;
     private String medication_Name;
-    private int medication_Dosage;
+    private String medication_Dosage;
     private String frequency;
-    private int duration_Days;
-    private int medication_Quantity;
+    private String duration_Days;
+    private String medication_Quantity;
     private String instructions;
     private String pharmacy_Name;
     private String status;
@@ -18,8 +18,8 @@ public class Prescriptions {
     private String collection_Date;
 
     public Prescriptions(String prescription_ID, String patient_ID, String clinician_ID, String appointment_ID,
-                         String prescription_Date, String medication_Name, int medication_Dosage, String frequency,
-                         int duration_Days, int medication_Quantity, String instructions, String pharmacy_Name,
+                         String prescription_Date, String medication_Name, String medication_Dosage, String frequency,
+                         String duration_Days, String medication_Quantity, String instructions, String pharmacy_Name,
                          String status, String issue_Date, String collection_Date) {
 
         this.prescription_ID = prescription_ID;
@@ -89,11 +89,11 @@ public class Prescriptions {
         this.medication_Name = medication_Name;
     }
 
-    public int getMedication_Dosage() {
+    public String getMedication_Dosage() {
         return medication_Dosage;
     }
 
-    public void setMedication_Dosage(int medication_Dosage) {
+    public void setMedication_Dosage(String medication_Dosage) {
         this.medication_Dosage = medication_Dosage;
     }
 
@@ -105,19 +105,19 @@ public class Prescriptions {
         this.frequency = frequency;
     }
 
-    public int getDuration_Days() {
+    public String getDuration_Days() {
         return duration_Days;
     }
 
-    public void setDuration_Days(int duration_Days) {
+    public void setDuration_Days(String duration_Days) {
         this.duration_Days = duration_Days;
     }
 
-    public int getMedication_Quantity() {
+    public String getMedication_Quantity() {
         return medication_Quantity;
     }
 
-    public void setMedication_Quantity(int medication_Quantity) {
+    public void setMedication_Quantity(String  medication_Quantity) {
         this.medication_Quantity = medication_Quantity;
     }
 
@@ -163,8 +163,8 @@ public class Prescriptions {
 
     public static Prescriptions fromCVS(String[] element) {
         return new Prescriptions(element[0], element[1], element[2], element[3],
-                element[4], element[5], Integer.parseInt(element[6]), element[7], Integer.parseInt(element[8]),
-                Integer.parseInt(element[9]), element[10], element[11], element[12], element[13],
+                element[4], element[5], (element[6]), element[7], (element[8]),
+                (element[9]), element[10], element[11], element[12], element[13],
                 element[14]);
     };
     public String toCSV() {
