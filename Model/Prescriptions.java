@@ -163,8 +163,8 @@ public class Prescriptions {
 
     public static Prescriptions fromCVS(String[] element) {
         return new Prescriptions(element[0], element[1], element[2], element[3],
-                element[4], element[5], (element[6]), element[7], (element[8]),
-                (element[9]), element[10], element[11], element[12], element[13],
+                element[4], element[5], element[6], element[7], element[8],
+                element[9], element[10], element[11], element[12], element[13],
                 element[14]);
     };
     public String toCSV() {

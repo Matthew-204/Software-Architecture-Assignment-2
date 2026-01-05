@@ -265,9 +265,9 @@ public class HealthcareGUI extends JFrame {
 
         JButton addPatientButton = new JButton("Add Patient");
         JButton addDeletePatientButton = new JButton("Delete Patient");
-        JButton addPatienteditButton = new JButton("Edit");
-        JButton addUpdateButton = new JButton("Update");
-        JButton addRefreshButton = new JButton("Refresh");
+        JButton addPatienteditButton = new JButton("Edit Patient");
+        JButton addUpdateButton = new JButton("Update Patient");
+        JButton addRefreshButton = new JButton("Refresh Patient");
 
         buttonPanel.add(addPatientButton);
         buttonPanel.add(addDeletePatientButton);
