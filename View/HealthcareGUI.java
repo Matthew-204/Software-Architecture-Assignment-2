@@ -54,9 +54,7 @@ public class HealthcareGUI extends JFrame {
 //    }
     public void refreshStaffTable(ArrayList<Staff>listofStaff) {
         staffTableModel.setRowCount(0);
-        for (int i = 0; i < listofStaff.size(); i = i + 1) {
-            Staff staff = listofStaff.get(i);
-
+        for (Staff staff : listofStaff) {
             Object[] row = {
                     staff.getID(),
                     staff.getFirstName(),
@@ -72,7 +70,8 @@ public class HealthcareGUI extends JFrame {
                     staff.getAccess_Level(),
             };
             staffTableModel.addRow(row);
-        };
+        }
+        ;
     };
 
     public void refreshAppointmentTable(ArrayList< Appointments >listofAppointment) {
@@ -100,7 +99,7 @@ public class HealthcareGUI extends JFrame {
     }
 
     public void refreshPatientsTable(ArrayList<Patients>listofPatients) {
-        staffTableModel.setRowCount(0);
+        patientTableModel.setRowCount(0);
         for (int i = 0; i < listofPatients.size(); i = i + 1) {
             Patients patients = listofPatients.get(i);
 

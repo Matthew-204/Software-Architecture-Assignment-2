@@ -10,11 +10,11 @@ public class Facilities {
     private String email_Address;
     private String opening_Hours;
     private String manager_Name;
-    private int capacity;
+    private String capacity;
     private String specialities_Offered;
 
     public Facilities(String facility_ID, String facility_Name, String facility_Type, String Address, String postCode,
-                      String phone_number, String email_Address, String opening_Hours, String manager_Name, int capacity,
+                      String phone_number, String email_Address, String opening_Hours, String manager_Name, String capacity,
                       String specialities_Offered){
 
 
@@ -103,11 +103,11 @@ public class Facilities {
         this.manager_Name = manager_Name;
     }
 
-    public int getCapacity() {
+    public String getCapacity() {
         return capacity;
     }
 
-    public void setCapacity(int capacity) {
+    public void setCapacity(String capacity) {
         this.capacity = capacity;
     }
 
@@ -119,10 +119,10 @@ public class Facilities {
         this.specialities_Offered = specialities_Offered;
     }
 
-    public static Facilities fromCVS(String[] element) {
+    public static Facilities fromCSV(String[] element) {
         return new Facilities(element[0], element[1], element[2], element[3],
                 element[4], element[5], element[6], element[7], element[8],
-                Integer.parseInt(element[9]), element[10]);
+                (element[9]), element[10]);
     };
     public String toCSV() {
         return  facility_ID + "," + facility_Name + "," + facility_Type + "," + Address + "," + postCode + "," +

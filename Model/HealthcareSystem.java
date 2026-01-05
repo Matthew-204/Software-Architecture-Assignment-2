@@ -24,7 +24,7 @@ public class HealthcareSystem {
     private static final String FACILITIESLOCATION = "facilities.csv";
     private static final String PATIENTLOCATION = "patients.csv";
     private static final String PRESCRIPTIONLOCATION = "Prescriptions.csv";
-    private static final String REFERRALSLOCATION = "Referrals.csv";
+    private static final String REFERRALSLOCATION = "referrals.csv";
 
     /**
      * A constructor for the healthcare system model
@@ -59,7 +59,7 @@ public class HealthcareSystem {
     public void loadStaff() {
         List<String[]> lines = File_Manager.readFile(FOLDER + STAFFLOCATION);
         for (String[] element : lines) {
-            Staff staff = Staff.fromCVS(element);
+            Staff staff = Staff.fromCSV(element);
             staffStore.put(staff.getID(), staff);
         }
     }
@@ -91,7 +91,7 @@ public class HealthcareSystem {
     public void loadAppointment() {
         List<String[]> lines = File_Manager.readFile(FOLDER + APPOINTMENTLOCATION);
         for (String[] element : lines) {
-            Appointments appointments = Appointments.fromCVS(element);
+            Appointments appointments = Appointments.fromCSV(element);
             appointmentStore.put(appointments.getAppointment_ID(), appointments);
         }
     }
@@ -115,7 +115,7 @@ public class HealthcareSystem {
     public void loadPatient() {
         List<String[]> lines = File_Manager.readFile(FOLDER + PATIENTLOCATION);
         for (String[] element : lines) {
-            Patients patients = Patients.fromCVS(element);
+            Patients patients = Patients.fromCSV(element);
             patientStore.put(patients.getID(), patients);
         }
     }
@@ -138,8 +138,9 @@ public class HealthcareSystem {
 
     public void loadPrescription() {
         List<String[]> lines = File_Manager.readFile(FOLDER + PRESCRIPTIONLOCATION);
+
         for (String[] element : lines) {
-            Prescriptions prescriptions = Prescriptions.fromCVS(element);
+            Prescriptions prescriptions = Prescriptions.fromCSV(element);
             prescriptionStore.put(prescriptions.getPrescription_ID(), prescriptions);
         }
 
@@ -164,7 +165,7 @@ public class HealthcareSystem {
     public void loadReferrals() {
         List<String[]> lines = File_Manager.readFile(FOLDER + REFERRALSLOCATION );
         for (String[] element : lines) {
-            Referrals referrals = Referrals.fromCVS(element);
+            Referrals referrals = Referrals.fromCSV(element);
             referralStore.put(referrals.getReferral_ID(), referrals);
         }
     }
@@ -188,7 +189,7 @@ public class HealthcareSystem {
         for (String[] element : lines) {
             Clinicians clinicians = null;
             try {
-                clinicians = Clinicians.fromCVS(element);
+                clinicians = Clinicians.fromCSV(element);
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -215,7 +216,7 @@ public class HealthcareSystem {
         for (String[] element : lines) {
             Facilities facilities = null;
             try {
-                facilities = Facilities.fromCVS(element);
+                facilities = Facilities.fromCSV(element);
             } catch (Exception e) {
                 e.printStackTrace();
             }

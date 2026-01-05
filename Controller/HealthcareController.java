@@ -1,11 +1,7 @@
 package Controller;
 
-import java.awt.event.*;
-import java.util.ArrayList;
 import View.*;
 import Model.*;
-
-import javax.swing.*;
 
 public class HealthcareController {
     private final HealthcareGUI view;
@@ -16,7 +12,6 @@ public class HealthcareController {
         this.model = model;
         loadTables();
 
-        view.addSetListener(new SetListener());
     }
     private void loadTables()
     {
@@ -28,14 +23,8 @@ public class HealthcareController {
         view.refreshClinicianTable(model.getAllClinicians());
         view.refreshFacilitiesTable(model.getAllFacilities());
     }
+    // Operations for the Patients display view.
 
-    private class SetListener implements ActionListener {
-        @Override
-        public void actionPerformed(ActionEvent e) {
-            System.out.println("Showing Text: " + view.getText());
-        }
-    }
-        // Operations for the Patients display view.
     public void loadPatients() {view.displayPatients(model.getAllPatients());}
 
     public void addPatient(Patients patient){
@@ -64,7 +53,8 @@ public class HealthcareController {
         view.showMessage("Patient record has been successfully Refreshed!");
 
     }
-        // Operations for the Appointment display view.
+    // Operations for the Appointment display view.
+
     public void loadAppointments(){view.displayAppointments(model.getAllAppointments());}
 
     public void createAppointment(Appointments appointment){
@@ -83,16 +73,17 @@ public class HealthcareController {
         view.showMessage("Appointment has been successfully Updated!");
     }
     public void editAppointment(String appointmentID, Appointments appointment){
-       model.editAppointment(appointmentID, appointment);
-       loadAppointments();
-       view.showMessage("Appointment has been successfully Edited!");
+        model.editAppointment(appointmentID, appointment);
+        loadAppointments();
+        view.showMessage("Appointment has been successfully Edited!");
     }
     public void refreshAppointment(String appointmentID, Appointments appointment){
         model.refreshAppointment(appointmentID, appointment);
         loadAppointments();
         view.showMessage("Appointment booking has been successfully Refreshed");
     }
-        // Operations for the Prescription display view.
+    // Operations for the Prescription display view.
+
     public void loadPrescriptions(){view.displayPrescriptions(model.getAllPrescriptions());}
 
     public void createPrescription(Prescriptions prescription){
@@ -120,7 +111,8 @@ public class HealthcareController {
         loadPrescriptions();
         view.showMessage("Patient Prescription has been successfully Changed!");
     }
-        // Operations for the Clinicians display view.
+    // Operations for the Clinicians display view.
+
     public void loadClinicians(){view.displayClinicians(model.getAllClinicians());}
 
     public void createClinicians(Clinicians clinician){
@@ -148,7 +140,8 @@ public class HealthcareController {
         loadClinicians();
         view.showMessage("Clinicians account has been successfully Refreshed!");
     }
-        // Operations for the Staff display view.
+    // Operations for the Staff display view.
+
     public void loadStaff(){view.displayStaff(model.getAllStaffMembers());}
 
     public void CreateStaff(Staff staff){
@@ -177,6 +170,7 @@ public class HealthcareController {
         view.showMessage("Staff accounts have been successfully Refreshed !");
     }
     // Operations for the Facilities display view.
+
     public void loadFacilities(){view.displayFacilities(model.getAllFacilities());}
 
     public void createFacilities(Facilities facilities){
@@ -204,7 +198,8 @@ public class HealthcareController {
         loadFacilities();
         view.showMessage("Facility has been successfully Refreshed!");
     }
-        // Operations for the Referral display view.
+    // Operations for the Referral display view.
+
     public void loadReferrals() {view.displayReferrals(model.getAllReferrals());}
 
     public void createReferrals(Referrals referrals){

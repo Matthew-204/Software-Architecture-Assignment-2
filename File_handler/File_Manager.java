@@ -14,7 +14,7 @@ public final class File_Manager {
             reader = new BufferedReader(new FileReader(filePath));
             String line;
             while ((line = reader.readLine()) != null) {
-                data.add(line.split(",")); //
+                data.add(line.split(",",-1)); //
             }
         } catch (Exception e) {
             System.err.println(e.getMessage());
